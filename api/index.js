@@ -6,6 +6,7 @@ const helmet = require("helmet")
 const morgan = require("morgan")
 const userRoute = require("./routes/users")
 const postRoute = require("./routes/posts")
+const cors = require('cors')
 
 dotenv.config();
 
@@ -19,6 +20,7 @@ const authRoute = require("./routes/auth")
 app.use(express.json());
 app.use(helmet());
 app.use(morgan());
+app.use(cors())
 
 app.use('/api/users',userRoute)
 app.use('/api/auth',authRoute)
